@@ -1,2 +1,7 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Force consistent line endings
+*.cs text eol=lf
+*.meta text eol=lf
+*.asmdef text eol=lf
