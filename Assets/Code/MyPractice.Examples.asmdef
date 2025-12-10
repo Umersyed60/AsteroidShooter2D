@@ -1,0 +1,9 @@
+{
+	"name": "MyPractice.Examples",
+	"rootNameSpace": "MyPractice.Examples",
+	"references": [
+	"VContainer",
+	"UniTask",
+	"Unity.TextMeshPro"
+	]
+}
