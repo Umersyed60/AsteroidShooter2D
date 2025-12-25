@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4508946913548574125}
   - component: {fileID: 8238180078927923614}
   - component: {fileID: 8751607413861469029}
-  - component: {fileID: 8519726143776859999}
+  - component: {fileID: 6838745396145357144}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -99,7 +99,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8519726143776859999
+--- !u!114 &6838745396145357144
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,9 +108,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1706308236544297223}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19ce9c6d1d804a259c8d812b91edd04e, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d684c9bb886bd449879c420422586c1, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: EngineRoom.Examples::EngineRoom.Examples.Views.BulletView
+  m_EditorClassIdentifier: MyPractice.Examples::MyPractice.Examples.Views.BulletView
   _speed: 10
   _rigidbody: {fileID: 8751607413861469029}
 --- !u!1 &4752635912365313719
@@ -147,6 +147,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &3524547097610399093
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -192,6 +193,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 2822c64af08cb4a8881026a2c348fd50, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -201,7 +203,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6623628053736330456
 GameObject:
@@ -237,6 +238,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!212 &2728052977126006541
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -282,6 +284,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 5c67fd845ba254dad975ca556aac85b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -291,5 +294,4 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0

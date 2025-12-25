@@ -509,7 +509,7 @@ Transform:
   m_GameObject: {fileID: 3312453967761964270}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
   m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -770,14 +770,19 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1200614094124296071, guid: 4f81ec9168e4c4c2a88ea81bf416caaa, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4827654993406843398}
+      addedObject: {fileID: 4891152738406165733}
   m_SourcePrefab: {fileID: 100100000, guid: 4f81ec9168e4c4c2a88ea81bf416caaa, type: 3}
+--- !u!4 &238857618874919394 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2820878204447682758, guid: 4f81ec9168e4c4c2a88ea81bf416caaa, type: 3}
+  m_PrefabInstance: {fileID: 2627096620748085540}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3808957169668898467 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1200614094124296071, guid: 4f81ec9168e4c4c2a88ea81bf416caaa, type: 3}
   m_PrefabInstance: {fileID: 2627096620748085540}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4827654993406843398
+--- !u!114 &4891152738406165733
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -789,7 +794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4a7ee7db0ceba14a810f14fef0d1bb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: MyPractice.Examples::MyPractice.Examples.Views.PlayerView
-  _cannon: {fileID: 0}
+  _cannon: {fileID: 238857618874919394}
 --- !u!4 &7882373292371492417 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5266540618494355301, guid: 4f81ec9168e4c4c2a88ea81bf416caaa, type: 3}

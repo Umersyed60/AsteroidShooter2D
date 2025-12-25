@@ -3,9 +3,12 @@ using MyPractice.Examples.Handlers;
 using MyPractice.Examples.Interfaces;
 using MyPractice.Examples.Controllers;
 using MyPractice.Examples.Views;
+using MyPractice.Examples.Services;
+using MyPractice.Examples.Utils;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
+
 
 namespace MyPractice.Examples
 {
@@ -17,11 +20,19 @@ namespace MyPractice.Examples
 
         [Header("Views")]
         [SerializeField] private PlayerView _playerView;
+        [SerializeField] private BulletView _bulletViewPrefab;
+
+        [Header("Various")]
+        [SerializeField] private Transform _bulletSpawnPoint;
 
         protected override void Configure(IContainerBuilder builder)
         {
+            //Services
+            builder.Register<IBulletsService, BulletsService>(Lifetime.Singleton);
+
             //Various
             builder.Register<IInputHandler, KeyboardInputHandler>(Lifetime.Singleton); //VContainer builds this instance on request
+            builder.RegisterInstance(_bulletSpawnPoint).Keyed(TransformKey.BulletSpawn);
 
             //Settings
             builder.RegisterInstance(_controlsSettings).As<IControlsSettings>(); //To register a pre-made object through inspector
@@ -30,6 +41,7 @@ namespace MyPractice.Examples
 
             //Views
             builder.RegisterComponent(_playerView).As<IPlayerView>(); // To register a MonoBehaviour already in the scene
+            builder.RegisterInstance(_bulletViewPrefab);
 
             builder.UseEntryPoints(config =>
             {
