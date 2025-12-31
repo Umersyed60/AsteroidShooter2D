@@ -15,6 +15,7 @@ namespace MyPractice.Examples.Services
         private readonly ITargetView[] _spawnPoints;
         private readonly ITargetController[] _spawnPointControllers;
         private readonly IObjectResolver _resolver;
+        private readonly IScoreService _scoreService;
         #endregion
 
         #region BuiltIn Methods
@@ -27,8 +28,8 @@ namespace MyPractice.Examples.Services
                 var controller = _resolver.Resolve<ITargetController>();
                 controller.SetView(targetSpawnPoint);
 
-                controller.TargetGotHit += OnTargetGotHit;
-                controller.TargetDespawned += OnTargetDespawned;
+                controller.TargetGotHit += _scoreService.AddScore;
+                controller.TargetDespawned += _scoreService.SubtractScore;
 
                 _spawnPointControllers[i] = controller;
             }
@@ -39,23 +40,26 @@ namespace MyPractice.Examples.Services
         #region Custom Methods
         public TargetsService(ITimeService timeService,
             IEnumerable<ITargetView> spawnPoints,
-            IObjectResolver resolver)
+            IObjectResolver resolver,
+            IScoreService scoreService)
         {
             _timeService = timeService;
             _spawnPoints = spawnPoints.ToArray();
             _spawnPointControllers = new ITargetController[_spawnPoints.Length];
             _resolver = resolver;
+            _scoreService = scoreService;
         }
 
-        private void OnTargetGotHit()
-        {
-            Debug.Log("Target Got Hit");
-        }
+        //Dummy methods to check if target is getting hit or not
+        //private void OnTargetGotHit()
+        //{
+        //    Debug.Log("Target Got Hit");
+        //}
 
-        private void OnTargetDespawned()
-        {
-            Debug.Log("Target Despawned");
-        }
+        //private void OnTargetDespawned()
+        //{
+        //    Debug.Log("Target Despawned");
+        //}
 
         private void OnSecondPassed()
         {
@@ -76,8 +80,8 @@ namespace MyPractice.Examples.Services
 
             foreach (var controller in _spawnPointControllers)
             {
-                controller.TargetGotHit -= OnTargetGotHit;
-                controller.TargetDespawned -= OnTargetDespawned;
+                controller.TargetGotHit -= _scoreService.AddScore;
+                controller.TargetDespawned -= _scoreService.SubtractScore;
             }
         }
         #endregion

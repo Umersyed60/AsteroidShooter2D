@@ -795,7 +795,8 @@ MonoBehaviour:
   parentReference:
     TypeName: 
   autoRun: 1
-  autoInjectGameObjects: []
+  autoInjectGameObjects:
+  - {fileID: 1888458791}
   _controlsSettings: {fileID: 11400000, guid: 4bfcc00fd6ced204d9aa60760c50158e, type: 2}
   _gameSettings: {fileID: 11400000, guid: d644deacc5c05d04ea2aaca0258f4bd6, type: 2}
   _playerView: {fileID: 4891152738089871179}
@@ -865,6 +866,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cbbbfc72a342b94a913158f84dfb1d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: MyPractice.Examples::MyPractice.Examples.Views.TargetView
+--- !u!1 &1888458791 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2562894816683642743, guid: f6f226cbdf6a848a29f2a8d8b14ed558, type: 3}
+  m_PrefabInstance: {fileID: 571208972}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2086050103 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8250513871656947137, guid: 4f81ec9168e4c4c2a88ea81bf416caaa, type: 3}
