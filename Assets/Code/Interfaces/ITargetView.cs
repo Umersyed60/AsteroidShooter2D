@@ -10,7 +10,7 @@ namespace MyPractice.Examples.Interfaces
 
         #region Custom Methods
         void SpawnTarget();
-        void DeSpawnTarget();
+        void DespawnTarget();
         #endregion
     }
 
