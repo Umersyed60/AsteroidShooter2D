@@ -45,7 +45,11 @@ namespace MyPractice.Examples.Services
             bullet.SetMovementDirection(direction);
         }
 
-        public void DespawnBullet(BulletView bullet) => _pool.Release(bullet);
+        public void DespawnBullet(BulletView bullet)
+        {
+            if (!bullet.gameObject.activeInHierarchy) return;
+            _pool.Release(bullet);
+        }
         #endregion
     }
 }
