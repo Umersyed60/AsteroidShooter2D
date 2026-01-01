@@ -1,6 +1,5 @@
 using MyPractice.Examples.Interfaces;
 using System;
-using UnityEngine;
 
 namespace MyPractice.Examples.Services
 {
@@ -11,17 +10,19 @@ namespace MyPractice.Examples.Services
         public int CurrentScore { get; private set; }
 
         private readonly IGameSettings _gameSettings;
+        private readonly IBoosterService _boosterService;
         #endregion
 
         #region Custom Methods
-        public ScoreService(IGameSettings gameSettings)
+        public ScoreService(IGameSettings gameSettings, IBoosterService boosterService)
         {
             _gameSettings = gameSettings;
+            _boosterService = boosterService;
         }
 
         public void AddScore()
         {
-            CurrentScore += _gameSettings.PointsPerHit;
+            CurrentScore += _gameSettings.PointsPerHit * _boosterService.Multiplier;
             ScoreChanged?.Invoke(CurrentScore);
         }
 

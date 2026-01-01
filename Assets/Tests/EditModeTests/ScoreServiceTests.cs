@@ -9,6 +9,7 @@ namespace EditModeTests
     {
         private ScoreService _scoreService;
         private MockGameSettings _mockSetting;
+        private MockBoosterService _mockboosterService;
 
         [SetUp]
         public void Setup()
@@ -18,7 +19,13 @@ namespace EditModeTests
                 PointsPerHit = 100,
                 PointsPerMiss = -50
             };
-            _scoreService = new ScoreService(_mockSetting);
+
+            _mockboosterService = new MockBoosterService
+            {
+                Multiplier = 1
+            };
+
+            _scoreService = new ScoreService(_mockSetting, _mockboosterService);
         }
 
         [Test]

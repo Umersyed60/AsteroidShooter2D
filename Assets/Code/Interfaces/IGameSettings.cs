@@ -8,6 +8,8 @@ namespace MyPractice.Examples.Interfaces
         float AimRotationDegreesPerSecond { get; }
         float DespawnTargetAfterSeconds { get; }
         float TargetSpawnCoolDownInSeconds { get; }
+        bool EnableScoreBoosters { get; }
+        float BoosterChance { get; }
         #endregion
     }
 

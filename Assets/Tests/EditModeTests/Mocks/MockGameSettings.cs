@@ -13,5 +13,9 @@ namespace EditModeTests.Mocks
         public float DespawnTargetAfterSeconds { get; set; } = 5f;
 
         public float TargetSpawnCoolDownInSeconds { get; set; } = 4f;
+
+        public bool EnableScoreBoosters { get; set; } = false;
+
+        public float BoosterChance { get; set; } = 0.3f;
     }
 }
