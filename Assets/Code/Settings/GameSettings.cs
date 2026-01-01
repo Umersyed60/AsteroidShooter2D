@@ -16,9 +16,10 @@ namespace MyPractice.Examples.Settings
         [field: SerializeField] public float DespawnTargetAfterSeconds { get; set; }
 
         [field: SerializeField] public float TargetSpawnCoolDownInSeconds { get; set; }
-        #endregion
 
-        #region Custom Methods
+        [field: SerializeField] public bool EnableScoreBoosters { get; set; } = false;
+
+        [field: SerializeField] public float BoosterChance { get; set; } = 0.3f;
         #endregion
     }
 }
