@@ -8,13 +8,13 @@ namespace EditModeTests
     public class ScoreServiceTests
     {
         private ScoreService _scoreService;
-        private MockGameSettings _mockSetting;
+        private MockGameSettings _mockSettings;
         private MockBoosterService _mockboosterService;
 
         [SetUp]
         public void Setup()
         {
-            _mockSetting = new MockGameSettings
+            _mockSettings = new MockGameSettings
             {
                 PointsPerHit = 100,
                 PointsPerMiss = -50
@@ -25,7 +25,27 @@ namespace EditModeTests
                 Multiplier = 1
             };
 
-            _scoreService = new ScoreService(_mockSetting, _mockboosterService);
+            _scoreService = new ScoreService(_mockSettings, _mockboosterService);
+        }
+
+        [TestCase(1)]
+        [TestCase(2)]
+        [TestCase(3)]
+        public void AddScore_WithMultiplier_IncreasesPoints(int multiplier)
+        {
+            //Arrange
+            _mockboosterService.Multiplier = multiplier;
+            _mockSettings.BoosterChance = 1f;
+            _mockSettings.EnableScoreBoosters = true;
+            var initialScore = _scoreService.CurrentScore;
+            var boosterMultiplier = _mockboosterService.Multiplier;
+            var expectedScore = initialScore + (_mockSettings.PointsPerHit * boosterMultiplier);
+
+            //Act
+            _scoreService.AddScore();
+
+            //Assert
+            Assert.AreEqual(expectedScore, _scoreService.CurrentScore);
         }
 
         [Test]
@@ -33,7 +53,7 @@ namespace EditModeTests
         {
             //Arrange
             var initialScore = _scoreService.CurrentScore;
-            var expectedScore = initialScore + _mockSetting.PointsPerHit;
+            var expectedScore = initialScore + _mockSettings.PointsPerHit;
 
             //Act
             _scoreService.AddScore();
@@ -47,7 +67,7 @@ namespace EditModeTests
         {
             //Arrange
             const int hits = 3;
-            var expectedScore = hits * _mockSetting.PointsPerHit;
+            var expectedScore = hits * _mockSettings.PointsPerHit;
 
             //Act
             for (var i =0; i < hits; i++)
@@ -65,7 +85,7 @@ namespace EditModeTests
             //Arrange
             _scoreService.AddScore();
             var initialScore = _scoreService.CurrentScore;
-            var expectedScore = initialScore + _mockSetting.PointsPerMiss;
+            var expectedScore = initialScore + _mockSettings.PointsPerMiss;
 
             //Act
             _scoreService.SubtractScore();
